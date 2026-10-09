@@ -1,0 +1,112 @@
+# =====================================================================
+# RAG Application - requirements.txt
+# Providers: OpenAI, Google Gemini, OpenRouter (OpenAI-compatible API)
+# Python 3.10+ recommended
+# Install: pip install -r requirements.txt
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# LLM Provider SDKs
+# ---------------------------------------------------------------------
+openai                # OpenAI + OpenRouter (set base_url="https://openrouter.ai/api/v1")
+google-genai            # New official Google Gemini SDK
+tiktoken              # Token counting for OpenAI models
+
+# ---------------------------------------------------------------------
+# Orchestration Framework (LangChain)
+# ---------------------------------------------------------------------
+langchain
+langchain-core
+langchain-community
+langchain_docling
+langchain-openai         # Also works with OpenRouter via base_url
+langchain-google-genai   # Gemini chat + embeddings
+langchain-openrouter
+langchain-chroma         # Chroma integration
+langchain-text-splitters # Recursive / token / markdown splitters
+langchain-huggingface    # Local HuggingFace embeddings
+langgraph                # Agentic / multi-step RAG workflows
+
+# ---------------------------------------------------------------------
+# Vector Databases
+# ---------------------------------------------------------------------
+chromadb                # Primary local/persistent vector store
+faiss-cpu               # Fast in-memory similarity search (use faiss-gpu for CUDA)
+qdrant-client           # Optional: Qdrant
+pinecone                # Optional: Pinecone (managed)
+
+# ---------------------------------------------------------------------
+# Embeddings & Local Models
+# ---------------------------------------------------------------------
+sentence-transformers   # Local embedding models (e.g. all-MiniLM, bge, e5)
+transformers
+torch                   # CPU build by default; install CUDA build separately if needed
+huggingface-hub
+
+# ---------------------------------------------------------------------
+# Retrieval Enhancements (Hybrid Search & Reranking)
+# ---------------------------------------------------------------------
+rank-bm25                # Keyword (BM25) retrieval for hybrid search
+flashrank                # Lightweight local cross-encoder reranker
+cohere                   # Optional: Cohere Rerank API
+
+# ---------------------------------------------------------------------
+# Document Loading & Parsing
+# ---------------------------------------------------------------------
+pypdf                    # PDF text extraction
+pymupdf                  # Faster/more accurate PDF parsing (fitz)
+pdfplumber               # PDF tables
+python-docx              # .docx files
+python-pptx              # .pptx files
+openpyxl                 # .xlsx files
+pandas                   # CSV / tabular data
+unstructured             # Multi-format loader (HTML, email, etc.)
+beautifulsoup4           # HTML parsing / web scraping
+lxml
+markdown
+requests
+httpx                    # Async HTTP client
+nltk                     # Sentence tokenization for chunking
+
+# ---------------------------------------------------------------------
+# API / Backend
+# ---------------------------------------------------------------------
+fastapi
+uvicorn[standard]
+python-multipart         # File uploads in FastAPI
+sse-starlette            # Streaming LLM responses (Server-Sent Events)
+
+# ---------------------------------------------------------------------
+# Frontend / UI (choose one)
+# ---------------------------------------------------------------------
+streamlit
+gradio
+
+# ---------------------------------------------------------------------
+# Config, Validation & Utilities
+# ---------------------------------------------------------------------
+python-dotenv            # Load API keys from .env
+pydantic
+pydantic-settings
+tenacity                 # Retries with backoff for API rate limits
+tqdm                     # Progress bars during ingestion
+numpy
+loguru                   # Simple structured logging
+
+# ---------------------------------------------------------------------
+# Caching & Memory
+# ---------------------------------------------------------------------
+redis                   # Optional: semantic/LLM response cache, chat history
+diskcache               # Local disk cache for embeddings
+
+# ---------------------------------------------------------------------
+# Evaluation & Observability
+# ---------------------------------------------------------------------
+ragas                    # RAG evaluation (faithfulness, relevancy, recall)
+langsmith                # Tracing & debugging LangChain pipelines
+
+# ---------------------------------------------------------------------
+# Testing & Dev
+# ---------------------------------------------------------------------
+pytest
+pytest-asyncio
